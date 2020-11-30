@@ -1,0 +1,13 @@
+<h1>Heroes <small>marvel y dc</small></h1>
+<hr>
+<div class="row" *ngIf="heroes.length<=0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No existen resultados con el término: {{termino}}
+        </div>
+    </div>
+</div>
+
+<div class="card-columns pb-2">
+    <app-heroe-tarjeta [heroe]="heroe" [index]="heroe.id" *ngFor="let heroe of heroes"></app-heroe-tarjeta>
+</div>
