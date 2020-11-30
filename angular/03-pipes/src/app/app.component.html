@@ -13,6 +13,11 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td>{{nombre2}}</td>
+                        <td>capitalizado</td>
+                        <td>{{nombre2|capitalizado:false}}</td>
+                    </tr>
+                    <tr>
                         <td>{{nombre}}</td>
                         <td>uppercase</td>
                         <td>{{nombre|uppercase}}</td>
@@ -39,13 +44,89 @@
                     </tr>
                     <tr>
                         <td>{{PI}}</td>
-                        <td>number</td>
+                        <td>number:'1.0-2'</td>
                         <td>{{PI|number:'1.0-2'}}</td>
                     </tr>
                     <tr>
                         <td>{{PI}}</td>
-                        <td>number</td>
+                        <td>number:'.0-2'</td>
                         <td>{{PI|number:'.0-2'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{porcentaje}}</td>
+                        <td>porcentaje</td>
+                        <td>{{porcentaje|percent}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{porcentaje}}</td>
+                        <td>porcentaje:'2.2-2'</td>
+                        <td>{{porcentaje|percent:'2.2-2'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{salario}}</td>
+                        <td>currency</td>
+                        <td>{{salario|currency}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{salario}}</td>
+                        <td>currency:'EUR'</td>
+                        <td>{{salario|currency:'EUR'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{salario}}</td>
+                        <td>currency:'CAD':'symbol-narrow':'1.0-0'</td>
+                        <td>{{salario|currency:'CAD':'symbol-narrow':'1.0-0'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{valorPromesa}}</td>
+                        <td>async</td>
+                        <td>{{valorPromesa|async}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{fecha}}</td>
+                        <td>date</td>
+                        <td>{{fecha|date}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{fecha}}</td>
+                        <td>date:'medium'</td>
+                        <td>{{fecha|date:'medium'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{fecha}}</td>
+                        <td>date:'short'</td>
+                        <td>{{fecha|date:'short'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{fecha}}</td>
+                        <td>date:'MMMM - dd'</td>
+                        <td>{{fecha|date:'MMMM - dd'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{fecha}}</td>
+                        <td>date:'MMMM - dd':'':'en'</td>
+                        <td>{{fecha|date:'MMMM - dd':'':'en'}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{fecha}}</td>
+                        <td>
+                            date:'MMMM - dd':'':'{{idioma}}'
+                            <br>
+                            <button class="btn btn-primary" (click)="idioma='es'">español</button>
+                            <button class="btn btn-secondary" (click)="idioma='en'">ingles</button>
+                            <button class="btn btn-success" (click)="idioma='fr'">frances</button>
+                        </td>
+                        <td>{{fecha|date:'MMMM - dd':'':idioma}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{nombre}}</td>
+                        <td>
+                            password:{{activar}}
+                            <br>
+                            <button *ngIf="activar" (click)="activar=false" class="btn btn-outline-danger">Desactivar</button>
+                            <button *ngIf="!activar" (click)="activar=true" class="btn btn-outline-success">Activar</button>
+                        </td>
+                        <td>{{nombre|password:activar}}</td>
                     </tr>
                 </tbody>
             </div>
@@ -63,4 +144,22 @@
         </ul>
     </div>
 
+</div>
+<div class="row">
+    <h4>JSON</h4>
+    <hr>
+    <div class="col-md-12">
+        <pre>
+        {{heroe|json}}
+      </pre>
+
+    </div>
+</div>
+
+<div class="row">
+    <h3>Dom seguros</h3>
+    <hr>
+    <div class="col-md-12">
+        <iframe width="560" height="315" [src]="videoUrl|domseguro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 </div>
